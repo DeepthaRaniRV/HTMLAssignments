@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#order").click(function () {
+                var type = $("input[name='type']:checked").val();
+                var size = $("input[name='size']:checked").val();
+                var top = $("#top").val();
+                var num = $("#num").val();
+                $("#pizzas").append("<tr><td>"+type+"</td><td>"+size+"</td><td>"+top+"</td><td>"+num+"</td></tr>")
+            });
+        });
+    </script>
+</head>
+<body>
+    <center><H1><font color="red"><marquee>ORDER YOUR PIZZA HERE !!!</marquee></font></H1></center>
+    <h2>
+        Type :
+    </h2> 
+    <input type="radio" name="type" value="Veg" />Veg
+    <input type="radio" name="type" value="NonVeg" />Non Veg<br /><br />
+
+    <h2>Size :</h2><input type="radio" name="size" value="S" />Small
+    <input type="radio" name="size" value="M" />Medium
+    <input type="radio" name="size" value="L" />Large<br /><br />
+
+    <h2>Toppings :</h2><select id="top" multiple="multiple">
+        <option value="Chicken">Chicken</option>
+        <option value="Onion">Onion</option>
+        <option value="SweetCorn">Sweet Corn</option>
+        <option value="Tomato">Tomato</option>
+        <option value="Cauliflower">Cauliflower</option>
+    </select><br /><br />
+
+    <h2> No. of Pizzas :</h2><input type="number" id="num" /><br /><br />
+    <input type="submit" value="ORDER" id="order" /><br /><br />
+
+   
+    <table border="1" id="pizzas" style="background-color:deepskyblue; font-size:20px;">
+        <tr>
+            <th>Type</th>
+            <th>Size</th>
+            <th>Toppings</th>
+            <th>No. of Pizzas</th>
+        </tr>
+    </table>
+
+</body>
+</html>

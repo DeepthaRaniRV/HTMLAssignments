@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script type="text/javascript">
+        function Add() {
+            P++;
+            var name = document.getElementById("txtname").value;
+                var g = "";
+                var gender = document.getElementsByName("gender");
+                if (gender[0].checked)
+                    g = gender[0].value;
+                if (gender[1].checked)
+                    g = gender[1].value;
+                if (!(gender[0].checked || gender[1].checked)) {
+                    alert("Select gender");
+                    return;
+                }
+            
+            var city1 = document.getElementById('drpcity');
+            var city = city1.options[city1.selectedIndex].text;
+            // alert(name + gender1 + age +city);
+
+
+            if (name == "") {
+                alert("Name cannot be blank");
+                return;
+            }
+
+            var age = parseInt(document.getElementById("txtage").value);
+            if (isNaN(age)) {
+                alert("Enter Age as Number");
+                return;
+            }
+            
+                var table = document.getElementById("mytable");
+                var row = table.insertRow(P);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                var cell5 = row.insertCell(4);
+                cell1.innerHTML = name;
+                cell2.innerHTML = g;
+                cell3.innerHTML = age;
+                cell4.innerHTML = city;
+                cell5.innerHTML = "Update/Remove";
+                p++;
+        }
+        var runtime = 25;
+        var P = 4;
+        function iterate()
+        {
+        for (var i = 0; i < runtime; i++) {
+            Add();
+        }
+            
+        }
+        
+        
+    </script>
+    <style>
+        body{
+            font-family:Arial;
+        }
+        .outer td{
+            padding:20px;
+        }
+        .style1{
+            border:2px solid darkgray;
+            border-collapse:collapse;
+            padding:0px 2px 2px 20px;
+        }
+        .style1 tr:nth-child(even){background-color:white}
+        .style1 tr:nth-child(odd){background-color:#f8f8f8}
+        .style1 th
+        {
+            background-color:lightgray;
+
+        }
+        .style2{
+            background-color:#f8f8f8;
+            border:2px solid lightgrey;
+        }
+        .button, .drop{
+            border-radius:6px;
+            border:2px solid black;
+            padding :0px 20px 0px 20px;
+        }
+        .input{
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+    <table class="outer">
+        <tr>
+            <td>List of Persons<br />
+                <table class="style1" id="mytable">
+                    <tr style="background-color:lightgray">
+                        <td>Name</td>
+                        <td>Gender</td>
+                        <td>Age</td>
+                        <td>City</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr>
+                        <td>Shahzad</td>
+                        <td>Male</td>
+                        <td>30</td>
+                        <td>Lahore</td>
+                        <td>Update/Remove</td>
+                    </tr>
+                    <tr>
+                        <td>Danial</td>
+                        <td>Male</td>
+                        <td>34</td>
+                        <td>Islamabad</td>
+                        <td>Update/Remove</td>
+                    </tr>
+                    <tr>
+                        <td>Sara</td>
+                        <td>Female</td>
+                        <td>34</td>
+                        <td>Karachi</td>
+                        <td>Update/Remove</td>
+                    </tr>
+                    <tr>
+                        <td>Tahir</td>
+                        <td>Male</td>
+                        <td>38</td>
+                        <td>Lahore</td>
+                        <td>Update/Remove</td>
+                    </tr>
+                </table>
+            </td>
+            <td>Add/Update Person Form<br />
+                <table class="style2" id="mytable">
+    <tr>
+        <td>Name :</td><td><input type="text" class="input" id="txtname"/></td>
+    </tr>
+                         <tr>
+                             <td>Gender :</td>
+                             <td><input type="radio" name="gender" id="rdmale" value="Male" class="input"/>Male
+                                 <input type="radio" name="gender" id="rdfemale" value="Female" class="input"/>Female</td>
+                         </tr>
+                         <tr>
+                             <td>Age:</td>
+                             <td><input type="number" id ="txtage" class="input" /></td>
+                         </tr>
+                         <tr>
+                             <td>City:</td>
+                             <td>
+                                 <select class="input drop" id="drpcity">
+                                     <option>Lahore</option>
+                                     <option>Islamabad</option>
+                                     <option>Karachi</option>
+                                 </select></td>
+                         </tr>
+                    <tr>
+                    <td colspan="2"><button value="reset" class="button">Reset</button>
+                                    <input type="button" value="add" class="button" onclick="iterate()"/>
+                                    <button value="update" class="button">Update</button>
+                    </td></tr>
+    
+</table>
+                  
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
